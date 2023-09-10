@@ -1,7 +1,7 @@
 {
   "name": "@fabricekopf/date-france",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Fonction qui retourne un tableau conetant plusieurs éléments (string) de date en français.",
   "main": "index.js",
   "scripts": {
@@ -9,5 +9,8 @@
     "start": "node ./index.js"
   },
   "author": "Fabrice Kopf",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jsdoc-to-markdown": "^8.0.0"
+  }
 }
