@@ -1,5 +1,6 @@
 {
   "name": "@fabricekopf/date-france",
+  "type": "module",
   "version": "1.0.5",
   "description": "Fonction qui retourne un tableau conetant plusieurs éléments (string) de date en français.",
   "main": "index.js",
