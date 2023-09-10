@@ -1,5 +1,5 @@
 ## Fonctions personnelles et usuelles
-**Version 1.0.6**
+**Version 1.0.7**
 
 # Date en français et en lettres
 
