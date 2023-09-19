@@ -1,6 +1,6 @@
 ## Fonctions personnelles et usuelles
-**Version 1.0.7**
-
+**Version 1.0.9**
+    => ajout de la fonction d'affichage de l'heure depuis un décimal
 # Date en français et en lettres
 
 C'est la principale fonction : formatDate() :
@@ -18,6 +18,11 @@ Elle retourne un tableau avec :
 ex : mm-jj-aaaa ou mm-jj-aaaa hh:mm
 
 **Sans paramètre, c'est la date actuelle qui est prise en compte**
+
+
+# Heures-minutes décimale convertie en string de type '00h00'
+
+heureDecToStr(decimale: number) => string
 
 # Nombres premiers
 

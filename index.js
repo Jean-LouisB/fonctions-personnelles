@@ -38,12 +38,13 @@ export default function formatDate(date = new Date()) {
         const dayL = now.getDay(); // jour de la semaine
         const dayLetter = dayTostringWithLetter(dayL);
         const month = now.getMonth();
+        const monthNumber = (month+1).toString().padStart(2,'0');
         const monthLetter = monthToStringWithLetter(month);
         const year = now.getFullYear();
         const hour = now.getHours();
         const minute = (now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes());
     
-        return { normalDate: now, dateToString: `${dayLetter} ${day} ${monthLetter} ${year} à ${hour}h${minute}`, dateToStringWithoutHour:`${dayLetter} ${day} ${monthLetter} ${year}`, hourToString: `${hour}h${minute}`, dayLetter:dayLetter,monthLetter:monthLetter}
+        return { normalDate: now, dateToString: `${dayLetter} ${day} ${monthLetter} ${year} à ${hour}h${minute}`, dateToStringWithoutHour:`${dayLetter} ${day} ${monthLetter} ${year}`, hourToString: `${hour}h${minute}`, dayLetter:dayLetter,monthLetter:monthLetter, dateCourte:`${day}/${monthNumber}/${year}`}
     } catch (error) {
 
         return "La date entrée en paramètre est invalide.\n => Respectez le format anglo-saxon : \'mm-dd-yyy\' ou avec l'heure : \'mm-dd-yyy hh:mm\'\n mm<= 12; dd <= 31, 30, 29,28 selon les mois; hh <= 23 et mm <=59"
@@ -51,6 +52,24 @@ export default function formatDate(date = new Date()) {
 
 }
 
+/**
+ * 
+ * @param {heures en décimale} nombre 
+ * @returns string : l'heure affichée au format hh:mm
+ */
+function heureDecToStr(decimale){
+    let signe ='';
+    if(decimale<0){
+      signe='-'
+    }
+    const tempsAbslolu = Math.abs(decimale);
+    const heureArrondie = Math.trunc(tempsAbslolu);
+    const minutes = tempsAbslolu - heureArrondie;
+    const minutestr = ((minutes*60).toFixed()).toString().padStart(2,'0');
+    const heureArrondieStr = heureArrondie.toString().padStart(2,'0');
+    const heureMinuteStr = signe+" "+heureArrondieStr+"h"+minutestr
+    return heureMinuteStr;
+  }
 
 function isPrime(nombre) {
     if (typeof nombre !== 'number') {
@@ -75,4 +94,4 @@ function allOfPrime(max){
     return tabOFPrimeNumber
 }
 
-export {formatDate, dayTostringWithLetter, monthToStringWithLetter, isPrime, allOfPrime};
+export {formatDate, dayTostringWithLetter, monthToStringWithLetter, heureDecToStr, isPrime, allOfPrime};
